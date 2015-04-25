@@ -5,9 +5,10 @@
 
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
+dir=~/.dotfiles                    # dotfiles directory
 
 ##########
 
 ln -s $dir/vimrc ~/.vimrc
 ln -s $dir/gitconfig ~/.gitconfig
+ln -s $dir/tmux.conf ~/.tmux.conf
