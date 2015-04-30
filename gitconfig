@@ -1,5 +1,15 @@
 [user]
-	name = chasorleo
-	email = chasorleo@gmail.com
+    name = chasorleo
+    email = chasorleo@gmail.com
+[https]
+    proxy = http://bproxy.rmit.edu.au:8080
+[core]
+    excludesfile = ~/.gitignore
+[alias]
+    co = checkout
+    ec = config --global -e
+    sv = !git add -A && git commit -m 'SAVEPOINT'
+    st = status
+    br = branch
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain

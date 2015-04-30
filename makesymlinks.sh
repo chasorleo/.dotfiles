@@ -9,6 +9,9 @@ dir=~/.dotfiles                    # dotfiles directory
 
 ##########
 
-ln -s $dir/vimrc ~/.vimrc
-ln -s $dir/gitconfig ~/.gitconfig
-ln -s $dir/tmux.conf ~/.tmux.conf
+ln -Fs $dir/bashrc ~/.bashrc
+ln -Fs $dir/bash_profile ~/.bash_profile
+ln -Fs $dir/gitconfig ~/.gitconfig
+ln -Fs $dir/gitignore ~/.gitignore
+ln -Fs $dir/vimrc ~/.vimrc
+ln -Fs $dir/tmux.conf ~/.tmux.conf
