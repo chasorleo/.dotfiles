@@ -8,6 +8,8 @@
 [alias]
     co = checkout
     ec = config --global -e
+    cm = commit -m
+    ec = config --global -e
     sv = !git add -A && git commit -m 'SAVEPOINT'
     st = status
     br = branch
