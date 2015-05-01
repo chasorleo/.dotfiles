@@ -30,7 +30,7 @@ PS1="\[\e[00;32m\]\t\[\e[0m\]\[\e[00;37m\]-\[\e[0m\]\[\e[01;33m\]\u\[\e[0m\]\[\e
 alias sb='source ~/.bashrc && echo "$(tput setaf 1)~/.bashrc reloaded!$(tput sgr0)"'
 
 alias ta='tmux attach -t'
-alias tk='killall tmux'
+alias tk='tmux kill-pane'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'

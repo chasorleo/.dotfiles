@@ -1,16 +1,38 @@
 " Modeline and Notes {{{
 
-" vim:shiftwidth=2:tabstop=8:expandtab
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{{,}}} foldlevel=3 foldmethod=marker
 
 " }}}
 
-" Environment {{{
-
-    " Basics {{{
+" Vundle setup and Plugins {{{
 
         set nocompatible        " Must be first line
-    " }}}
+        filetype off
+        " set the runtime path to include Vundle and initialize
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+        """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+        Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'jlanzarotta/bufexplorer'
+        Plugin 'altercation/vim-colors-solarized'
+        Plugin 'tpope/vim-surround'
+        Plugin 'spf13/vim-autoclose'
+        Plugin 'ctrlpvim/ctrlp.vim'
+        Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+        Plugin 'jistr/vim-nerdtree-tabs'
+        Plugin 'mbbill/undotree'
+        Plugin 'nathanaelkane/vim-indent-guides'
+        Plugin 'scrooloose/syntastic'
+        Plugin 'tpope/vim-fugitive'
+        Plugin 'scrooloose/nerdcommenter'
+        Plugin 'godlygeek/tabular'
+        Plugin 'garbas/vim-snipmate'
+        Plugin 'honza/vim-snippets'
+        Plugin 'Valloric/YouCompleteMe'
+        """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+        call vundle#end()           " required
+        filetype plugin indent on   " required
 
 " }}}
 
@@ -256,4 +278,104 @@
 
     " map za to zA to open fold recursively
     nnoremap za zA
+" }}}
+
+" Plugins {{{
+
+    " PowerLine {{{
+        python from powerline.vim import setup as powerline_setup
+        python powerline_setup()
+        python del powerline_setup
+        set guifont=Inconsolata\ for\ PowerLine:h15
+        let g:PowerLine_symbols = 'fancy'
+        set encoding=utf-8
+        set t_Co=256
+        set fillchars+=stl:\ ,stlnc:\
+        set term=xterm-256color
+        set termencoding=utf-8
+    " }}}
+
+    " NerdTree {{{
+        map <C-e> <plug>NERDDTreeTabsToggle<CR>
+        map <leader>e :NERDTreeFind<CR>
+        nmap <leader>nt :NERDTreeFind<CR>
+
+        let NERDTreeShowBookmarks=1
+        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+        let NERDTreeChDirMode=0
+        let NERDTreeQuitOnOpen=1
+        let NERDTreeMouseMode=2
+        let NERDTreeShowHidden=1
+        let NERDTreeKeepTreeInNewTab=1
+        let g:nerdtree_tabs_open_on_gui_startup=0
+    " }}}
+
+    " Undotree {{{
+        if has("persistent_undo")
+            set undodir='~/.undodir/'
+                set undofile
+            endif
+        nnoremap <leader>u : UndotreeToggle<CR>
+        let g:undotree_SetFocusWhenToggle=1
+    " }}}
+
+    " Tabularize {{{
+        nmap <leader>a& :Tabularize /&<CR>
+        vmap <Leader>a& :Tabularize /&<CR>
+        nmap <Leader>a= :Tabularize /=<CR>
+        vmap <Leader>a= :Tabularize /=<CR>
+        nmap <Leader>a=> :Tabularize /=><CR>
+        vmap <Leader>a=> :Tabularize /=><CR>
+        nmap <Leader>a: :Tabularize /:<CR>
+        vmap <Leader>a: :Tabularize /:<CR>
+        nmap <Leader>a:: :Tabularize /:\zs<CR>
+        vmap <Leader>a:: :Tabularize /:\zs<CR>
+        nmap <Leader>a, :Tabularize /,<CR>
+        vmap <Leader>a, :Tabularize /,<CR>
+        nmap <Leader>a,, :Tabularize /,\zs<CR>
+        vmap <Leader>a,, :Tabularize /,\zs<CR>
+        nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+        vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    " }}}
+
+    " Fugitive {{{
+        nnoremap <silent> <leader>gs :Gstatus<CR>
+        nnoremap <silent> <leader>gd :Gdiff<CR>
+        nnoremap <silent> <leader>gc :Gcommit<CR>
+        nnoremap <silent> <leader>gb :Gblame<CR>
+        nnoremap <silent> <leader>gl :Glog<CR>
+        nnoremap <silent> <leader>gp :Git push<CR>
+        nnoremap <silent> <leader>gr :Gread<CR>
+        nnoremap <silent> <leader>gw :Gwrite<CR>
+        nnoremap <silent> <leader>ge :Gedit<CR>
+        " Mnemonic  _i_nteractive
+        nnoremap <silent> <leader>gi :Git add -p %<CR>
+        nnoremap <silent> <leader>gg :SignifyToggle<CR>"
+    " }}}
+
+    " YouCompleteMe {{{
+        let g:acp_enableAtStartup = 0
+
+        " enable completion from tags
+        let g:ycm_collect_identifiers_from_tags_files = 1
+
+        " remap Ultisnips for compatibility for YCM
+        let g:UltiSnipsExpandTrigger = '<C-j>'
+        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+        " Enable omni completion.
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+        " Disable the neosnippet preview candidate window
+        " When enabled, there can be too much visual noise
+        " especially when splits are used.
+        set completeopt-=preview
+    " }}}
 " }}}
