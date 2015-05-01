@@ -84,6 +84,14 @@
 
 " Vim UI {{{
 
+
+    set background=dark
+    let g:seolarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="normal"
+    let g:solarized_visibility="normal"
+    color solarized             " Load a colorscheme"
+
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
@@ -296,8 +304,7 @@
     " }}}
 
     " NerdTree {{{
-        map <C-e> <plug>NERDDTreeTabsToggle<CR>
-        map <leader>e :NERDTreeFind<CR>
+        map <leader>e :NERDTreeToggle<CR>
         nmap <leader>nt :NERDTreeFind<CR>
 
         let NERDTreeShowBookmarks=1
