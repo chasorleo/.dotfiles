@@ -9,6 +9,7 @@ dir=~/.dotfiles                    # dotfiles directory
 
 ##########
 
+ln -Fs $dir/zshrc ~/.zshrc
 ln -Fs $dir/bashrc ~/.bashrc
 ln -Fs $dir/bash_profile ~/.bash_profile
 ln -Fs $dir/gitconfig ~/.gitconfig

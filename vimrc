@@ -65,6 +65,14 @@
     autocmd GUIEnter * set vb t_vb=
     set hidden                          " remember undo after quitting
 
+    " Backup settings
+    if has('persistent_undo')
+        set undodir=~/.undodir/
+        set undofile
+        set undolevels=1000
+        set undoreload=10000
+    endif
+
     " Restore cursor to file position in previous editing session
     function! ResCur()
         if line("'\"") <= line("$")
@@ -318,10 +326,6 @@
     " }}}
 
     " Undotree {{{
-        if has("persistent_undo")
-            set undodir='~/.undodir/'
-                set undofile
-            endif
         nnoremap <leader>u : UndotreeToggle<CR>
         let g:undotree_SetFocusWhenToggle=1
     " }}}
