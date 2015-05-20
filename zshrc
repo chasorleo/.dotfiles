@@ -5,7 +5,8 @@ export ZSH=/Users/elves/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="awesomepanda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 #-------------------
 # Personnal Aliases
 #-------------------
-alias sz='source ~/.bashrc && echo "$(tput setaf 1)~/.bashrc reloaded!$(tput sgr0)"'
+alias sz='source ~/.zshrc && echo "$(tput setaf 1)~/.zshrc reloaded!$(tput sgr0)"'
 
 alias ta='tmux attach -t'
 alias tl='tmux ls'
@@ -124,6 +125,7 @@ alias la='ll -A'           #  Show hidden files.
 # Spelling typos - highly personnal and keyboard-dependent :-)
 #-------------------------------------------------------------
 
+alias clc='clear'
 alias xs='cd'
 alias vf='cd'
 alias moer='more'
