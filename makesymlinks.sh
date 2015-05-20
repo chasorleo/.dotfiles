@@ -10,8 +10,8 @@ dir=~/.dotfiles                    # dotfiles directory
 ##########
 
 ln -Fs $dir/zshrc ~/.zshrc
-ln -Fs $dir/bashrc ~/.bashrc
-ln -Fs $dir/bash_profile ~/.bash_profile
+#ln -Fs $dir/bashrc ~/.bashrc
+#ln -Fs $dir/bash_profile ~/.bash_profile
 ln -Fs $dir/gitconfig ~/.gitconfig
 ln -Fs $dir/gitignore ~/.gitignore
 ln -Fs $dir/vimrc ~/.vimrc
