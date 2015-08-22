@@ -5,8 +5,7 @@ export ZSH=/Users/elves/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="awesomepanda"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -131,3 +130,4 @@ alias vf='cd'
 alias moer='more'
 alias moew='more'
 alias kk='ll'
+alias vim='/usr/local/bin/vim'

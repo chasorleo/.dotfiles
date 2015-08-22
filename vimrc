@@ -59,8 +59,8 @@
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
     set hidden                          " Allow buffer switching without saving
-    set spell
-    set spelllang=en
+    "set spell
+    "set spelllang=en
     nnoremap <F6> :set spell!<CR>
     autocmd GUIEnter * set vb t_vb=
     set hidden                          " remember undo after quitting
@@ -307,7 +307,7 @@
         set encoding=utf-8
         set t_Co=256
         set fillchars+=stl:\ ,stlnc:\
-        set term=xterm-256color
+        "set term=xterm-256color
         set termencoding=utf-8
     " }}}
 
